@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JSX just js</title>
+    <!-- Estos scripts son para que puedas usar JSX y React y transpirarlos con BABEL -->
+    <script
+      src="https://unpkg.com/react@16.8.6/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@16.8.6/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <script src="https://unpkg.com/@babel/standalone@7.9.6/babel.min.js"></script>
+  </head>
+
+  <body>
+    <div id="root"></div>
+  </body>
+
+  <script type="text/babel">
+    const rootElement = document.getElementById("root");
+    const arrayList = ["Amo poder ayudar", "Amo Aprender", "Amo Viajar"];
+    const List = ({arrayList}) => {
+      return (
+        <div className="className">
+          <h1>Cosas que Amo</h1>
+          <ul>
+            {arrayList.map((item, index) => (
+              <li key={index}>{item}</li>
+            ))}
+          </ul>
+        </div>
+      );
+    };
+    ReactDOM.render(<List arrayList={arrayList} />, rootElement);
+  </script>
+</html>
